@@ -1,0 +1,43 @@
+// ดึงปุ่มที่มี id "language-button" และกำหนดการทำงานเมื่อถูกคลิก
+document.getElementById('language-button').addEventListener('click', function() {
+
+    // ดึงข้อความของนักศึกษาจากหน้าเว็บโดยใช้ id ของแต่ละส่วน
+    const nameElement = document.getElementById('student-name');  // ดึงข้อมูลของชื่อ
+    const ageElement = document.getElementById('student-age');    // ดึงข้อมูลของอายุ
+    const courseElement = document.getElementById('student-course');  // ดึงข้อมูลของคอร์สที่นักศึกษาเรียน
+
+    // ตรวจสอบว่าข้อความในหน้าเว็บเป็นภาษาไทยหรือไม่ โดยดูว่าข้อความประกอบด้วยคำว่า 'ชื่อ' หรือไม่
+    if (nameElement.textContent.includes('ชื่อ')) {
+        // ถ้าเป็นภาษาไทย ให้เปลี่ยนข้อความทั้งหมดเป็นภาษาอังกฤษ
+        nameElement.textContent = 'Name: Somchai Jaidee';  // เปลี่ยนชื่อเป็นภาษาอังกฤษ
+        ageElement.textContent = 'Age: 21 years';  // เปลี่ยนอายุเป็นภาษาอังกฤษ
+        courseElement.textContent = 'Course: Computer Engineering';  // เปลี่ยนคอร์สเป็นภาษาอังกฤษ
+    } else {
+        // ถ้าเป็นภาษาอังกฤษ ให้เปลี่ยนข้อความกลับเป็นภาษาไทย
+        nameElement.textContent = 'ชื่อ: สมชาย ใจดี';  // เปลี่ยนชื่อกลับเป็นภาษาไทย
+        ageElement.textContent = 'อายุ: 21 ปี';  // เปลี่ยนอายุกลับเป็นภาษาไทย
+        courseElement.textContent = 'คอร์ส: วิศวกรรมคอมพิวเตอร์';  // เปลี่ยนคอร์สกลับเป็นภาษาไทย
+    }
+});
+อธิบายโค้ด:
+
+    ดึงปุ่มและเพิ่มเหตุการณ์การคลิก:
+        เราใช้ document.getElementById('language-button') เพื่อดึงปุ่มที่มี id ชื่อว่า "language-button" จาก HTML
+        จากนั้นใช้ .addEventListener('click', function() {...}) เพื่อกำหนดฟังก์ชันที่ทำงานเมื่อปุ่มถูกคลิก
+
+    ดึงข้อมูลนักศึกษา:
+        ใช้ document.getElementById เพื่อดึงองค์ประกอบ (element) แต่ละตัวที่มีข้อมูลของนักศึกษา โดยแต่ละตัวใช้ id ที่แตกต่างกัน เช่น student-name, student-age, และ student-course
+
+    ตรวจสอบภาษาในปัจจุบัน:
+        เราใช้ textContent เพื่อตรวจสอบเนื้อหาขององค์ประกอบนั้น ๆ
+        ใช้ includes('ชื่อ') เพื่อตรวจสอบว่าข้อความนั้นมีคำว่า "ชื่อ" หรือไม่ ถ้ามีแสดงว่าตอนนี้เป็นภาษาไทย
+
+    เปลี่ยนภาษา:
+        ถ้าเป็นภาษาไทย (พบคำว่า 'ชื่อ') จะเปลี่ยนข้อความเป็นภาษาอังกฤษ
+        ถ้าไม่ใช่ (คือเป็นภาษาอังกฤษ) จะเปลี่ยนข้อความกลับเป็นภาษาไทย
+
+หมายเหตุสำหรับผู้เรียน:
+
+    document.getElementById() เป็นฟังก์ชันที่ใช้เพื่อดึงองค์ประกอบที่มี id จาก HTML มาใช้งานใน JavaScript
+    addEventListener() ใช้ในการตั้งค่าเหตุการณ์ เช่น คลิก, ลากเมาส์, หรือการพิมพ์ เมื่อเหตุการณ์เกิดขึ้น ฟังก์ชันที่กำหนดจะทำงาน
+    if และ else คือโครงสร้างเงื่อนไข เมื่อเงื่อนไขเป็นจริง (true) ฟังก์ชันจะทำงาน ถ้าไม่เป็นจริง จะทำงานในส่วน else
