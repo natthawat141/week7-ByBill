@@ -25,11 +25,14 @@ showBtn.addEventListener('click', function() {
     outputDisplay.style.display = 'block'; // แสดงข้อมูลที่บันทึกไว้
 });
 
-// รับค่า input X และ Y
-const inputX = document.getElementById('inputX');
-const inputY = document.getElementById('inputY');
-const compareBtn = document.getElementById('compareBtn');
-const output = document.getElementById('output');
+// ฟังก์ชันสำหรับรับเวลาปัจจุบันในรูปแบบ HH:MM:SS
+function getCurrentTime() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return `${hours}:${minutes}:${seconds}`;
+}
 
 // เมื่อกดปุ่ม Compare
 compareBtn.addEventListener('click', function() {
@@ -43,12 +46,32 @@ compareBtn.addEventListener('click', function() {
         return;
     }
 
-    // เปรียบเทียบ X และ Y และแสดงเครื่องหมาย
+    // รับเวลาในขณะนี้
+    const currentTime = getCurrentTime();
+
+    // เปรียบเทียบ X และ Y และแสดงผลพร้อมเวลา
     if (x < y) {
-        output.innerHTML = `X (${x}) < Y (${y})`;
+        output.innerHTML = `X (${x}) < Y (${y})<br><small>Compared at: ${currentTime}</small>`;
     } else if (x > y) {
-        output.innerHTML = `X (${x}) > Y (${y})`;
+        output.innerHTML = `X (${x}) > Y (${y})<br><small>Compared at: ${currentTime}</small>`;
     } else {
-        output.innerHTML = `X (${x}) = Y (${y})`;
+        output.innerHTML = `X (${x}) = Y (${y})<br><small>Compared at: ${currentTime}</small>`;
     }
 });
+
+
+    // ค้นหา element ที่ต้องการควบคุม
+    const imgElement = document.getElementById('image');
+    const showImgButton = document.getElementById('showimg');
+
+    // กำหนด action เมื่อกดปุ่ม
+    showImgButton.addEventListener('click', function() {
+        // ตรวจสอบสถานะของการแสดงผลรูปภาพ
+        if (imgElement.style.display === 'none') {
+            imgElement.style.display = 'block';  // แสดงรูปภาพ
+            showImgButton.innerText = 'Hide img'; // เปลี่ยนข้อความปุ่มเป็น 'Hide img'
+        } else {
+            imgElement.style.display = 'none';   // ซ่อนรูปภาพ
+            showImgButton.innerText = 'Show img'; // เปลี่ยนข้อความปุ่มเป็น 'Show img'
+        }
+    });
