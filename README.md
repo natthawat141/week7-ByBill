@@ -1,6 +1,5 @@
-# week7-ByBill
-
-
+# week7-ByBill แจกแบบฝึกหัด week 7 by bill
+แจกจ่ายต่อได้เต็มที่
 <h2>ใช้  DOM (Document Object Model) ในการเปลี่ยนภาษา</h2>
 
 document.getElementById():
