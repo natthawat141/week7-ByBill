@@ -60,18 +60,25 @@ compareBtn.addEventListener('click', function() {
 });
 
 
-    // ค้นหา element ที่ต้องการควบคุม
-    const imgElement = document.getElementById('image');
-    const showImgButton = document.getElementById('showimg');
+// ค้นหา element ที่ต้องการควบคุม
+const imgElement = document.getElementById('image');
+const swapImgButton = document.getElementById('swapimg');
+const changeImageText = document.getElementById('changeImage'); // เพิ่มตัวแปรสำหรับพารากราฟแสดงชื่อรูปภาพ
 
-    // กำหนด action เมื่อกดปุ่ม
-    showImgButton.addEventListener('click', function() {
-        // ตรวจสอบสถานะของการแสดงผลรูปภาพ
-        if (imgElement.style.display === 'none') {
-            imgElement.style.display = 'block';  // แสดงรูปภาพ
-            showImgButton.innerText = 'Hide img'; // เปลี่ยนข้อความปุ่มเป็น 'Hide img'
-        } else {
-            imgElement.style.display = 'none';   // ซ่อนรูปภาพ
-            showImgButton.innerText = 'Show img'; // เปลี่ยนข้อความปุ่มเป็น 'Show img'
-        }
-    });
+// กำหนด action เมื่อกดปุ่ม
+swapImgButton.addEventListener('click', function() {
+    // ตรวจสอบรูปภาพปัจจุบัน
+    if (imgElement.src === 'https://cdn.worldvectorlogo.com/logos/adonisjs.svg') {
+        // ถ้าเป็นรูป adonisjs เปลี่ยนเป็นรูปใหม่
+        imgElement.src = 'https://cdn.worldvectorlogo.com/logos/laravel-2.svg';  // เปลี่ยนเป็นรูป Laravel
+        swapImgButton.innerText = 'Change to Adonisjs';  // เปลี่ยนข้อความปุ่ม
+        changeImageText.textContent = 'Laravel'; // เปลี่ยนข้อความใน <p> เป็น Laravel
+    } else {
+        // ถ้าเป็นรูปใหม่แล้ว ให้เปลี่ยนกลับเป็นรูปเดิม
+        imgElement.src = 'https://cdn.worldvectorlogo.com/logos/adonisjs.svg';  // เปลี่ยนกลับเป็นรูป Adonisjs
+        swapImgButton.innerText = 'Change to Laravel';  // เปลี่ยนข้อความปุ่ม
+        changeImageText.textContent = 'AdonisJS'; // เปลี่ยนข้อความใน <p> เป็น AdonisJS
+    }
+});
+
+
