@@ -13,35 +13,55 @@
 <body>
 
 
-    <div class="container mt-5">
-        <h1 class="mb-4">Example 1: Input</h1>
-        <form class="ex">
-            <div class="mb-3">
-                <label for="dataInput" class="form-label">Data String</label>
-                <input type="text" class="form-control" id="dataInput" placeholder="Enter data here">
-            </div>
-            <div class="mb-3">
-                <label for="personInput" class="form-label">Person</label>
-                <input type="text" class="form-control" id="personInput" placeholder="Enter person's name">
-            </div>
-            <button type="button" class="btn btn-success" id="submitBtn">Submit</button>
-        </form>
-    </div>
-
-    <!-- Container สำหรับ Output -->
-    <div class="container mt-5">
-        <h1 class="mb-4">Output</h1>
-        <div class="ex">
-            <div id="outputDisplay" class="card p-3" style="display: none; margin: 5px;">
-                <p id="dataOutput"><strong>Data:</strong> </p>
-                <p id="personOutput"><strong>Person:</strong> </p>
-            </div>
-            <button type="button" class="btn btn-primary" id="showBtn" style="padding: 5px;">Show Data</button>
+<!-- Container สำหรับ Input -->
+<div class="container mt-5  p-3 border border-1">
+    <h1 class="mb-4">Example 1: Input</h1>
+    <form class="ex">
+        <div class="mb-3">
+            <label for="dataInput" class="form-label">Data String</label>
+            <input type="text" class="form-control" id="dataInput" placeholder="Enter data here">
         </div>
+        <div class="mb-3">
+            <label for="personInput" class="form-label">Person (ค่านี้เป็นค่าคงที่)</label> <!-- แสดงค่าคงที่ -->
+            <input type="text" class="form-control" id="personInput" value="John Doe" readonly>
+        </div>
+        <button type="button" class="btn btn-success" id="submitBtn">Submit</button>
+    </form>
+</div>
+
+<!-- Container สำหรับ Output -->
+<div class="container mt-5 p-3 border border-1">
+    <h1 class="mb-4">Example 2: Output</h1>
+    <div class="ex">
+        <div id="outputDisplay" class="card p-3" style="display: none; margin: 5px;">
+            <p id="dataOutput"><strong>Data:</strong> </p> <!-- รับค่าจาก input -->
+            <p id="personOutput"><strong>Person:</strong> John Doe</p> <!-- แสดงค่าคงที่ -->
+        </div> 
+        <button type="button" class="btn btn-primary" id="showBtn" style="padding: 5px;">Show Data</button>
     </div>
+</div>
 
 
 
+<div class="container mt-5 p-3 border border-1">
+    <h1>ex3</h1>
+    <form class="ex">
+        <div class="mb-3">
+            <label for="inputX" class="form-label">Input X</label>
+            <input type="number" class="form-control" id="inputX" placeholder="Enter value for X">
+        </div>
+        <div class="mb-3">
+            <label for="inputY" class="form-label">Input Y</label>
+            <input type="number" class="form-control" id="inputY" placeholder="Enter value for Y">
+        </div>
+        <button type="button" class="btn btn-primary" id="compareBtn">Compare</button>
+    </form>
+
+    <!-- แสดงผลการเปรียบเทียบ -->
+    <div class="mt-4">
+        <p id="output"></p>
+    </div>
+</div>
 
 
     <script src="ex.js"></script>
